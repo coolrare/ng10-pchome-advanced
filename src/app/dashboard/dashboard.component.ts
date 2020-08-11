@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
     chartPieDemo();
   }
 
-  goTo(path, type, query: any) {
+  goTo(path, type, query: any = {}) {
     this.router.navigate([path, type], {
       queryParams: query
     });
