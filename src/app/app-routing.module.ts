@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { ColorComponent } from './utilities/color/color.component';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'page1', component: Page1Component },
       { path: 'page2', component: Page2Component },
-      { path: 'tables', component: TablesComponent },
+      { path: 'tables', component: TablesComponent, canActivate: [AuthGuard] },
       { path: 'charts', component: ChartsComponent },
       {
         path: 'utilities',
