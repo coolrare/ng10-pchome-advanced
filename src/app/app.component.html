@@ -20,21 +20,21 @@
     <hr class="sidebar-divider my-0" />
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-      <a class="nav-link" routerLink="/dashboard">
+    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a class="nav-link" routerLink="/">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a
       >
     </li>
 
-    <li class="nav-item active">
+    <li class="nav-item" routerLinkActive="active">
       <a class="nav-link" routerLink="/page1">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Page1</span></a
       >
     </li>
 
-    <li class="nav-item active">
+    <li class="nav-item" routerLinkActive="active">
       <a class="nav-link" routerLink="/page2">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Page2</span></a
