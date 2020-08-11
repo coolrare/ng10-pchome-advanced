@@ -1,3 +1,4 @@
+import { ColorComponent } from './utilities/color/color.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { Page1Component } from './page1/page1.component';
@@ -15,6 +16,12 @@ const routes: Routes = [
   { path: 'page2', component: Page2Component },
   { path: 'tables', component: TablesComponent },
   { path: 'charts', component: ChartsComponent },
+  {
+    path: 'utilities',
+    children: [
+      { path: 'color', component: ColorComponent }
+    ]
+  },
   { path: '**', component: NotFoundComponent }
 ];
 
