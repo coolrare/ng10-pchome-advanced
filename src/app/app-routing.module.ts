@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { ColorComponent } from './utilities/color/color.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -7,22 +8,29 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TablesComponent } from './tables/tables.component';
 import { ChartsComponent } from './charts/charts.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
-  // { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
-  { path: '', component: DashboardComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'page1', component: Page1Component },
-  { path: 'page2', component: Page2Component },
-  { path: 'tables', component: TablesComponent },
-  { path: 'charts', component: ChartsComponent },
   {
-    path: 'utilities',
+    path: '',
+    component: LayoutComponent,
     children: [
-      { path: 'color/:type', component: ColorComponent }
+      { path: '', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'page1', component: Page1Component },
+      { path: 'page2', component: Page2Component },
+      { path: 'tables', component: TablesComponent },
+      { path: 'charts', component: ChartsComponent },
+      {
+        path: 'utilities',
+        children: [
+          { path: 'color/:type', component: ColorComponent }
+        ]
+      },
+      { path: 'pages', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) },
     ]
   },
-  { path: 'pages', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
