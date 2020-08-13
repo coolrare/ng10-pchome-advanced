@@ -21,8 +21,8 @@
                            aria-describedby="emailHelp"
                            placeholder="Enter Email Address...">
                     <ul *ngIf="mEmail.invalid">
-                      <li *ngIf="mEmail.errors.required">請輸入 E-mail 地址</li>
-                      <li *ngIf="mEmail.errors.email">請輸入合法的 E-mail 地址</li>
+                      <li *ngIf="mEmail.errors?.required">請輸入 E-mail 地址</li>
+                      <li *ngIf="mEmail.errors?.email">請輸入合法的 E-mail 地址</li>
                     </ul>
 <pre>mEmail.value = {{mEmail.value}}
 mEmail.pristine = {{mEmail.pristine}}
