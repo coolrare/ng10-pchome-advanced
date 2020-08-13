@@ -10,7 +10,7 @@ import { TwidDirective } from '../twid.directive';
 })
 export class Login2Component implements OnInit, OnDestroy {
 
-  data = {
+  data: LoginModel = {
     email: 'doggy.huang@gmail.com',
     pwds: [
       {
@@ -94,3 +94,12 @@ export class Login2Component implements OnInit, OnDestroy {
 
 }
 
+export interface LoginModel {
+  email: string;
+  pwds: Pwd[];
+}
+
+export interface Pwd {
+  password: string;
+  rememberMe: boolean;
+}
