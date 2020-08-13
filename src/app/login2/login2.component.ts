@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, FormControl, FormGroupDirective } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, FormControl, FormGroupDirective, FormArray } from '@angular/forms';
 import { isNationalIdentificationNumberValid } from 'taiwan-id-validator2';
 import { TwidDirective } from '../twid.directive';
 
@@ -42,6 +42,14 @@ export class Login2Component implements OnInit, OnDestroy {
     if (this.form.valid) {
       alert('表單送出');
     }
+  }
+
+  addNewPw() {
+    const fa = this.form.get('pwds') as FormArray;
+    fa.push(this.fb.group({
+      password: ['', [Validators.required]],
+      rememberMe: false
+    }));
   }
 
   ngOnDestroy(): void {
