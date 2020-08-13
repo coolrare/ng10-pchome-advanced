@@ -12,8 +12,16 @@ export class Login2Component implements OnInit, OnDestroy {
 
   data = {
     email: 'doggy.huang@gmail.com',
-    password: '123456',
-    rememberMe: true
+    pwds: [
+      {
+        password: '123123',
+        rememberMe: true
+      },
+      {
+        password: '123',
+        rememberMe: true
+      }
+    ]
   };
 
   form: FormGroup;
@@ -32,22 +40,25 @@ export class Login2Component implements OnInit, OnDestroy {
 
     // ['doggy.huang@gmail.com', [Validators.required, this.twid.validate]]
     this.form = this.fb.group({
-      email: this.fb.control('doggy.huang@gmail.com', {
+      email: this.fb.control('', {
         validators: [Validators.required, this.twid.validate],
         asyncValidators: [],
         updateOn: 'blur'
       }),
       pwds: this.fb.array([
         this.fb.group({
-          password: ['123123', [Validators.required]],
-          rememberMe: true
+          password: ['', [Validators.required]],
+          rememberMe: false
         }),
         this.fb.group({
-          password: ['123', [Validators.required]],
-          rememberMe: true
+          password: ['', [Validators.required]],
+          rememberMe: false
         })
       ])
     });
+
+    this.resetForm();
+
   }
 
   doSubmit(fg: FormGroupDirective) {
@@ -70,6 +81,10 @@ export class Login2Component implements OnInit, OnDestroy {
 
   f(name: string): FormControl {
     return this.form.get(name) as FormControl;
+  }
+
+  resetForm() {
+    this.form.reset(this.data);
   }
 
 }
