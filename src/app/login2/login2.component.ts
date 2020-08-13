@@ -74,8 +74,14 @@ export class Login2Component implements OnInit, OnDestroy {
     document.body.className = '';
   }
 
-  f(name: string): FormControl {
+  fc(name: string): FormControl {
     return this.form.get(name) as FormControl;
+  }
+  fg(name: string): FormGroup {
+    return this.form.get(name) as FormGroup;
+  }
+  fa(name: string): FormArray {
+    return this.form.get(name) as FormArray;
   }
 
   resetForm() {
