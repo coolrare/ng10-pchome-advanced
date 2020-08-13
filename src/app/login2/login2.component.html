@@ -37,7 +37,11 @@ f('email').status = {{f('email').status}}
 f('email').errors = {{f('email').errors | json}}</pre>
                   </div>
 
-                  <ng-container formGroupName="group1">
+                  <ng-container formArrayName="pwds">
+
+                  <ng-container
+                    *ngFor="let item of form.get('pwds')['controls']; let i=index"
+                    [formGroupName]="i">
 
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user" id="exampleInputPassword"
@@ -52,6 +56,8 @@ f('email').errors = {{f('email').errors | json}}</pre>
                       <label class="custom-control-label" for="customCheck">Remember Me</label>
                     </div>
                   </div>
+
+                  </ng-container>
 
                   </ng-container>
 

@@ -25,10 +25,16 @@ export class Login2Component implements OnInit, OnDestroy {
 
     this.form = this.fb.group({
       email: ['doggy.huang@gmail.com', [Validators.required, this.twid.validate]],
-      group1: this.fb.group({
-        password: ['123123', [Validators.required]],
-        rememberMe: true
-      })
+      pwds: this.fb.array([
+        this.fb.group({
+          password: ['123123', [Validators.required]],
+          rememberMe: true
+        }),
+        this.fb.group({
+          password: ['123', [Validators.required]],
+          rememberMe: true
+        })
+      ])
     });
   }
 
