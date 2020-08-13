@@ -13,6 +13,7 @@ import { ChartsComponent } from './charts/charts.component';
 import { ColorComponent } from './utilities/color/color.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
+import { TwidDirective } from './twid.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LayoutComponent } from './layout/layout.component';
     ChartsComponent,
     ColorComponent,
     LoginComponent,
-    LayoutComponent
+    LayoutComponent,
+    TwidDirective
   ],
   imports: [
     BrowserModule,

@@ -16,13 +16,14 @@
                 <form class="user">
                   <div class="form-group">
                     <input type="email" class="form-control form-control-user"
-                           [(ngModel)]="data.email" name="email" required email
+                           [(ngModel)]="data.email" name="email" required twid
                            #mEmail="ngModel"
                            aria-describedby="emailHelp"
                            placeholder="Enter Email Address...">
                     <ul *ngIf="mEmail.invalid">
                       <li *ngIf="mEmail.errors?.required">請輸入 E-mail 地址</li>
                       <li *ngIf="mEmail.errors?.email">請輸入合法的 E-mail 地址</li>
+                      <li *ngIf="mEmail.errors?.twid">請輸入合法的身分證字號</li>
                     </ul>
 <pre>mEmail.value = {{mEmail.value}}
 mEmail.pristine = {{mEmail.pristine}}
@@ -33,6 +34,7 @@ mEmail.enabled = {{mEmail.enabled}}
 mEmail.disabled = {{mEmail.disabled}}
 mEmail.valid = {{mEmail.valid}}
 mEmail.invalid = {{mEmail.invalid}}
+mEmail.status = {{mEmail.status}}
 mEmail.errors = {{mEmail.errors | json}}</pre>
                   </div>
                   <div class="form-group">
