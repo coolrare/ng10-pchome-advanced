@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
@@ -5,6 +6,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit, OnDestroy {
+
+  data = {
+    email: 'doggy.huang@gmail.com',
+    password: '123456',
+    rememberMe: true
+  };
 
   constructor() { }
 
