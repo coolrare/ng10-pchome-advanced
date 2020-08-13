@@ -13,14 +13,15 @@
                   <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                 </div>
                 <pre>{{ data | json }}</pre>
-                <form class="user" #form="ngForm" (ngSubmit)="doSubmit(form)">
+                <form class="user" #form="ngForm" (ngSubmit)="doSubmit(form)"
+                  [class.was-validated]="form.submitted || form.touched">
                   <div class="form-group">
                     <input type="email" class="form-control form-control-user"
                            [(ngModel)]="data.email" name="email" required email
                            #mEmail="ngModel"
                            aria-describedby="emailHelp"
                            placeholder="Enter Email Address...">
-                    <ul *ngIf="form.submitted && mEmail.invalid">
+                    <ul *ngIf="mEmail.invalid" class="invalid-feedback">
                       <li *ngIf="mEmail.errors?.required">請輸入 E-mail 地址</li>
                       <li *ngIf="mEmail.errors?.email">請輸入合法的 E-mail 地址</li>
                       <li *ngIf="mEmail.errors?.twid">請輸入合法的身分證字號</li>
