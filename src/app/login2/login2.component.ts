@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   templateUrl: './login2.component.html',
@@ -12,10 +13,18 @@ export class Login2Component implements OnInit, OnDestroy {
     rememberMe: true
   };
 
-  constructor() { }
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     document.body.className = 'bg-gradient-primary';
+
+    this.form = this.fb.group({
+      email: 'doggy.huang@gmail.com',
+      password: '123123',
+      rememberMe: true
+    });
   }
 
   doSubmit(form) {
