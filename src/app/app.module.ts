@@ -1,3 +1,4 @@
+import { WaitDirective } from './wait.directive';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,7 +28,8 @@ import { TwidDirective } from './twid.directive';
     ColorComponent,
     LoginComponent,
     LayoutComponent,
-    TwidDirective
+    TwidDirective,
+    WaitDirective
   ],
   imports: [
     BrowserModule,
