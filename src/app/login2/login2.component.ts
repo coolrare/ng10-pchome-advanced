@@ -1,9 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, FormControl, FormGroupDirective } from '@angular/forms';
+import { isNationalIdentificationNumberValid } from 'taiwan-id-validator2';
+import { TwidDirective } from '../twid.directive';
 
 @Component({
   templateUrl: './login2.component.html',
-  styleUrls: ['./login2.component.css']
+  styleUrls: ['./login2.component.css'],
+  providers: [TwidDirective]
 })
 export class Login2Component implements OnInit, OnDestroy {
 
@@ -15,13 +18,13 @@ export class Login2Component implements OnInit, OnDestroy {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private twid: TwidDirective) { }
 
   ngOnInit(): void {
     document.body.className = 'bg-gradient-primary';
 
     this.form = this.fb.group({
-      email: ['doggy.huang@gmail.com', [Validators.required, Validators.email]],
+      email: ['doggy.huang@gmail.com', [Validators.required, this.twid.validate]],
       password: ['123123', [Validators.required]],
       rememberMe: true
     });
@@ -42,3 +45,4 @@ export class Login2Component implements OnInit, OnDestroy {
   }
 
 }
+
