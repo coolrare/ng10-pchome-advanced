@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   templateUrl: './login.component.html',
@@ -17,6 +18,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     document.body.className = 'bg-gradient-primary';
+  }
+
+  doSubmit(form: NgForm) {
+    if (form.valid) {
+      alert('表單送出');
+    }
   }
 
   ngOnDestroy(): void {
