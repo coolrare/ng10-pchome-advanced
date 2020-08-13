@@ -12,11 +12,29 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                 </div>
+                <pre>data = {{ data | json }}
+form.value = {{ form.value | json }}</pre>
                 <form class="user" [formGroup]="form">
                   <div class="form-group">
                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                            formControlName="email"
                            aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                           <ul *ngIf="form.get('email').invalid" class="invalid-feedback">
+                            <li *ngIf="form.get('email').errors?.required">請輸入 E-mail 地址</li>
+                            <li *ngIf="form.get('email').errors?.email">請輸入合法的 E-mail 地址</li>
+                            <li *ngIf="form.get('email').errors?.twid">請輸入合法的身分證字號</li>
+                          </ul>
+      <pre>form.get('email').value = {{form.get('email').value}}
+form.get('email').pristine = {{form.get('email').pristine}}
+form.get('email').dirty = {{form.get('email').dirty}}
+form.get('email').touched = {{form.get('email').touched}}
+form.get('email').untouched = {{form.get('email').untouched}}
+form.get('email').enabled = {{form.get('email').enabled}}
+form.get('email').disabled = {{form.get('email').disabled}}
+form.get('email').valid = {{form.get('email').valid}}
+form.get('email').invalid = {{form.get('email').invalid}}
+form.get('email').status = {{form.get('email').status}}
+form.get('email').errors = {{form.get('email').errors | json}}</pre>
                   </div>
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user" id="exampleInputPassword"
