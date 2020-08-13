@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, FormControl, FormGroupDirective } from '@angular/forms';
 
 @Component({
   templateUrl: './login2.component.html',
@@ -27,8 +27,8 @@ export class Login2Component implements OnInit, OnDestroy {
     });
   }
 
-  doSubmit(form) {
-    if (form.valid) {
+  doSubmit(fg: FormGroupDirective) {
+    if (this.form.valid) {
       alert('表單送出');
     }
   }
