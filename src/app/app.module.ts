@@ -15,6 +15,7 @@ import { ColorComponent } from './utilities/color/color.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TwidDirective } from './twid.directive';
+import { Login2Component } from './login2/login2.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TwidDirective } from './twid.directive';
     LoginComponent,
     LayoutComponent,
     TwidDirective,
-    WaitDirective
+    WaitDirective,
+    Login2Component
   ],
   imports: [
     BrowserModule,

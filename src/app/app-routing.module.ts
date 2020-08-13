@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TablesComponent } from './tables/tables.component';
 import { ChartsComponent } from './charts/charts.component';
 import { LayoutComponent } from './layout/layout.component';
+import { Login2Component } from './login2/login2.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
     ]
   },
   { path: 'login', component: LoginComponent },
+  { path: 'login2', component: Login2Component },
   { path: '**', component: NotFoundComponent }
 ];
 
