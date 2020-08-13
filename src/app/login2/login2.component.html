@@ -44,7 +44,7 @@ f('email').errors = {{f('email').errors | json}}</pre>
                     [formGroupName]="i">
 
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+                    <input type="password" class="form-control form-control-user"
                            formControlName="password"
                            placeholder="Password">
                   </div>
@@ -52,8 +52,8 @@ f('email').errors = {{f('email').errors | json}}</pre>
                     <div class="custom-control custom-checkbox small">
                       <input type="checkbox" class="custom-control-input"
                              formControlName="rememberMe"
-                             id="customCheck">
-                      <label class="custom-control-label" for="customCheck">Remember Me</label>
+                             id="customCheck{{i}}">
+                      <label class="custom-control-label" for="customCheck{{i}}">Remember Me</label>
                     </div>
                   </div>
 

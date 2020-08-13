@@ -20,6 +20,10 @@ export class Login2Component implements OnInit, OnDestroy {
       {
         password: '123',
         rememberMe: true
+      },
+      {
+        password: '123',
+        rememberMe: true
       }
     ]
   };
@@ -45,16 +49,7 @@ export class Login2Component implements OnInit, OnDestroy {
         asyncValidators: [],
         updateOn: 'blur'
       }),
-      pwds: this.fb.array([
-        this.fb.group({
-          password: ['', [Validators.required]],
-          rememberMe: false
-        }),
-        this.fb.group({
-          password: ['', [Validators.required]],
-          rememberMe: false
-        })
-      ])
+      pwds: this.fb.array([])
     });
 
     this.resetForm();
@@ -84,6 +79,16 @@ export class Login2Component implements OnInit, OnDestroy {
   }
 
   resetForm() {
+    const fa = this.form.get('pwds') as FormArray;
+    fa.clear();
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.data.pwds.length; i++) {
+      fa.push(this.fb.group({
+        password: ['', [Validators.required]],
+        rememberMe: false
+      }));
+    }
+
     this.form.reset(this.data);
   }
 
