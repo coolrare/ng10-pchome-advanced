@@ -23,6 +23,13 @@ export class Login2Component implements OnInit, OnDestroy {
   ngOnInit(): void {
     document.body.className = 'bg-gradient-primary';
 
+    // this.form = this.fb.group(this.data);
+    // // tslint:disable-next-line: forin
+    // for (const ctlName in this.form.controls) {
+    //   const ctl = this.form.get(ctlName) as FormControl;
+    //   ctl.setValidators([Validators.required]);
+    // }
+
     // ['doggy.huang@gmail.com', [Validators.required, this.twid.validate]]
     this.form = this.fb.group({
       email: this.fb.control('doggy.huang@gmail.com', {
